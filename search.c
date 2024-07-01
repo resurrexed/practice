@@ -29,4 +29,21 @@ int main()
 
    return 0;
 }
+int * binary_search(int * array, size_t size, int num)
+{
+   int pivot = (size - 1) / 2;
+   int step = size / 2;
+   do
+   {
+      if(step != 1) step += step % 2;
+      step = step / 2;
+      if(array[pivot] == num) return array + pivot;
+      else if(array[pivot] < num) pivot += step; 
+      else if(array[pivot] > num) pivot -= step;
+      if(pivot < 0) pivot = 0;
+      if(pivot >= size) pivot = size - 1;
+   } while(step);
+
+   return NULL;
+}
 
