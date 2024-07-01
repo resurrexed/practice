@@ -29,6 +29,7 @@ int main()
 
    return 0;
 }
+
 int * binary_search(int * array, size_t size, int num)
 {
    int pivot = (size - 1) / 2;
@@ -47,3 +48,10 @@ int * binary_search(int * array, size_t size, int num)
    return NULL;
 }
 
+int * linear_search(int * array, size_t size, int num)
+{
+   for(size_t i = 0; i < size; i++)
+      if(num == array[i]) return array + i;
+
+   return NULL;
+}
