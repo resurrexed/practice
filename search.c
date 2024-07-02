@@ -15,21 +15,16 @@ int main()
    for(size_t i = 1; i < size; i++) array[i] = array[i - 1] + rand() % 100 + 1;
    puts("Generated array:");
    for(size_t i = 0; i < size ; i++) printf("%d\t", array[i]);
-   
    puts("\nEnter number to linear search:");
    scanf("%d", &lnum);
-   time_t start = clock();
    int * res = linear_search((int*)array, size, lnum);
    if(res) printf("\nFounded index - %d\n", res - array);
    else printf("\nNumber not founded\n");
-   time_t finish = clock();
-  // puts("\nEnter number to binary search:");
-  // scanf("%d", &bnum);
-  // int * res = binary_search((int*)array, size, bnum);
-  // if(res) printf("\nFounded index - %d\n", res - array);
-  // else printf("\nNumber not founded\n");
-   printf("%f", (finish-start)/1000.0);
-
+   puts("\nEnter number to binary search:");
+   scanf("%d", &bnum);
+   res = binary_search((int*)array, size, bnum);
+   if(res) printf("\nFounded index - %d\n", res - array);
+   else printf("\nNumber not founded\n");
    return 0;
 }
 int * binary_search(int * array, size_t size, int num)
