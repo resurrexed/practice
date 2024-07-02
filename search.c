@@ -8,24 +8,27 @@ int * linear_search(int * array, size_t size, int num);
 int main()
 {
    srand(time(NULL));
-   int array[20] = { 0 };
+   int array[100000] = { 0 };
    int lnum = 0;
    int bnum = 0;
-   for(size_t i = 1; i < 20; i++) array[i] = array[i - 1] + rand() % 100 + 1;
+   int size= 100000;
+   for(size_t i = 1; i < size; i++) array[i] = array[i - 1] + rand() % 100 + 1;
    puts("Generated array:");
-   for(size_t i = 0; i < 20; i++) printf("%d\t", array[i]);
+   for(size_t i = 0; i < size ; i++) printf("%d\t", array[i]);
    
    puts("\nEnter number to linear search:");
    scanf("%d", &lnum);
-   int * res = linear_search((int*)array, 20, lnum);
+   time_t start = clock();
+   int * res = linear_search((int*)array, size, lnum);
    if(res) printf("\nFounded index - %d\n", res - array);
    else printf("\nNumber not founded\n");
-
-   puts("\nEnter number to binary search:");
-   scanf("%d", &bnum);
-   res = binary_search((int*)array, 20, bnum);
-   if(res) printf("\nFounded index - %d\n", res - array);
-   else printf("\nNumber not founded\n");
+   time_t finish = clock();
+  // puts("\nEnter number to binary search:");
+  // scanf("%d", &bnum);
+  // int * res = binary_search((int*)array, size, bnum);
+  // if(res) printf("\nFounded index - %d\n", res - array);
+  // else printf("\nNumber not founded\n");
+   printf("%f", (finish-start)/1000.0);
 
    return 0;
 }
@@ -46,4 +49,10 @@ int * binary_search(int * array, size_t size, int num)
 
    return NULL;
 }
+ int * linear_search(int * array, size_t size, int num)
+{
+   for(size_t i = 0; i < size; i++)
+      if(num == array[i]) return array + i;
 
+   return NULL;
+}
