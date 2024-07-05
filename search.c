@@ -14,7 +14,7 @@ int main()
    int size = 1000000;
    for(size_t i = 1; i < size; i++) array[i] = array[i - 1] + rand() % 100 + 1;
    puts("Generated array:");
-   for(size_t i = 0; i < size ; i++) printf("%d\t", array[i]);
+   for(size_t i = 0; i < size ; i++) printf("%d\n", array[i]);
    puts("\nEnter number to linear search:");
    scanf("%d", &lnum);
    int * res = linear_search((int*)array, size, lnum);
