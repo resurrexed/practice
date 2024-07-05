@@ -8,10 +8,10 @@ int * linear_search(int * array, size_t size, int num);
 int main()
 {
    srand(time(NULL));
-   int array[100000] = { 0 };
+   int array[1000000] = { 0 };
    int lnum = 0;
    int bnum = 0;
-   int size= 100000;
+   int size = 1000000;
    for(size_t i = 1; i < size; i++) array[i] = array[i - 1] + rand() % 100 + 1;
    puts("Generated array:");
    for(size_t i = 0; i < size ; i++) printf("%d\t", array[i]);
